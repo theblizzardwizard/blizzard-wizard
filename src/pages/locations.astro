@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const locations = [
+  {
+    name: "North York",
+    neighborhoods: ["Willowdale", "Don Mills", "Bayview Village", "York Mills", "Newtonbrook"],
+    description: "Comprehensive coverage throughout North York, from Willowdale to Don Mills. We understand the diverse property types and ensure thorough snow clearing for all."
+  },
+  {
+    name: "Richmond Hill",
+    neighborhoods: ["Oak Ridges", "Elgin Mills", "Bayview Hill", "Crosby", "Jefferson"],
+    description: "Full service across Richmond Hill's varied terrain. From historic downtown to newer developments, we're familiar with every neighborhood."
+  },
+  {
+    name: "Markham",
+    neighborhoods: ["Unionville", "Markham Village", "Berczy Village", "Cornell", "Wismer Commons"],
+    description: "Serving Markham's extensive residential areas. From Unionville's heritage charm to modern communities, reliable snow removal for all homeowners."
+  },
+  {
+    name: "Vaughan",
+    neighborhoods: ["Woodbridge", "Thornhill", "Maple", "Concord", "Kleinburg"],
+    description: "Professional snow clearing across Vaughan's growing communities. We cover all major areas ensuring your property stays accessible all winter."
+  },
+  {
+    name: "Scarborough",
+    neighborhoods: ["Agincourt", "Malvern", "Rouge", "Woburn", "Cliffside"],
+    description: "Complete residential snow removal across all of Scarborough. We serve every neighborhood bringing reliable winter service to East Toronto."
+  }
+];
+---
+
+<Layout title="Service Locations">
+  
+  <!-- Hero -->
+  <section class="relative py-24 bg-gradient-to-br from-primary-600 via-winter-600 to-primary-700 overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-4xl mx-auto space-y-6">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white">
+          Service Locations
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90">
+          Proudly serving the Greater Toronto Area with professional snow removal
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Grid -->
+  <section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16 max-w-3xl mx-auto">
+        <p class="text-lg text-gray-600 leading-relaxed">
+          The Blizzard Wizard is your trusted residential snow removal partner across five key areas in the Greater Toronto Area. We know the unique challenges each community faces during winter and are committed to keeping your home accessible and safe.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {locations.map((location, index) => (
+          <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+            <div class={`h-2 bg-gradient-to-r ${index % 2 === 0 ? 'from-primary-500 to-winter-500' : 'from-winter-500 to-primary-500'}`}></div>
+            <div class="p-8">
+              <div class={`w-16 h-16 bg-gradient-to-br ${index % 2 === 0 ? 'from-primary-500 to-winter-500' : 'from-winter-500 to-primary-500'} rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-900 mb-4">{location.name}</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">{location.description}</p>
+              <div class="space-y-2">
+                <h4 class="font-semibold text-primary-700 mb-3">Popular Neighborhoods:</h4>
+                <div class="flex flex-wrap gap-2">
+                  {location.neighborhoods.map((hood) => (
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">{hood}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        <!-- Special Card -->
+        <div class="group bg-gradient-to-br from-primary-600 via-winter-600 to-primary-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+          <div class="p-8 h-full flex flex-col justify-center items-center text-center text-white">
+            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Not Sure If We Service Your Area?</h3>
+            <p class="mb-6 text-white/90">
+              We're always expanding! Even if your neighborhood isn't listed, we may still be able to help.
+            </p>
+            <a href="/contact" class="inline-block px-8 py-3 bg-white text-primary-700 font-bold rounded-full hover:bg-gray-50 transition-colors">
+              Check Availability
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coverage Commitment -->
+      <div class="mt-24">
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">Our Coverage Commitment</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-3xl p-8 shadow-lg text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-primary-500 to-winter-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h4 class="text-2xl font-bold text-gray-900 mb-4">Fast Response Times</h4>
+            <p class="text-gray-600 leading-relaxed">
+              Strategic positioning across all service areas ensures we can reach your property quickly after snowfall.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 shadow-lg text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-winter-500 to-primary-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
+            </div>
+            <h4 class="text-2xl font-bold text-gray-900 mb-4">Local Knowledge</h4>
+            <p class="text-gray-600 leading-relaxed">
+              Our team knows the GTA inside and out, understanding local weather patterns and community-specific needs.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 shadow-lg text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-primary-500 to-winter-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h4 class="text-2xl font-bold text-gray-900 mb-4">Community Focus</h4>
+            <p class="text-gray-600 leading-relaxed">
+              We're proud members of the communities we serve, treating every property with the care it deserves.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-br from-primary-600 via-winter-600 to-primary-700">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold text-white mb-6">Ready for Worry-Free Winter?</h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        Find out why homeowners across the GTA trust The Blizzard Wizard for their snow removal needs.
+      </p>
+      <a href="/contact" class="inline-block px-10 py-4 bg-white text-primary-700 font-bold rounded-full text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+        Get Your Free Quote
+      </a>
+    </div>
+  </section>
+
+</Layout>
